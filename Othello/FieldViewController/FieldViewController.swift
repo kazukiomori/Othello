@@ -14,6 +14,7 @@ class FieldViewController: UIViewController {
         didSet {
             fieldCollectionView.dataSource = self
             fieldCollectionView.delegate = self
+            fieldCollectionView.register(BanCell.self, forCellWithReuseIdentifier: "BanCell")
         }
     }
     override func viewDidLoad() {
@@ -34,7 +35,7 @@ extension FieldViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Bancell", for: indexPath) as! BanCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BanCell", for: indexPath) as! BanCell
         return cell
     }
     
