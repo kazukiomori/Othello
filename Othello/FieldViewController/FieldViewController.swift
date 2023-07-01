@@ -3,6 +3,16 @@ import UIKit
 
 class FieldViewController: UIViewController {
     let FIELD_SIZE = CGSize(width: 8, height: 8)
+    var fieldStates: [[FieldStatus]] = [
+        [.空,.空,.空,.空,.空,.空,.空,.空],
+        [.空,.空,.空,.空,.空,.空,.空,.空],
+        [.空,.空,.空,.空,.空,.空,.空,.空],
+        [.空,.空,.空,.白,.黒,.空,.空,.空],
+        [.空,.空,.空,.黒,.白,.空,.空,.空],
+        [.空,.空,.空,.空,.空,.空,.空,.空],
+        [.空,.空,.空,.空,.空,.空,.空,.空],
+        [.空,.空,.空,.空,.空,.空,.空,.空]
+    ]
 
     @IBOutlet weak var fieldCollectionView: UICollectionView! {
         didSet {
@@ -32,6 +42,12 @@ class FieldViewController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         fieldCollectionView.setCollectionViewLayout(layout, animated: false)
+        
+        for x in 0..<Int(FIELD_SIZE.width) {
+            for y in 0..<Int(FIELD_SIZE.height) {
+                
+            }
+        }
     }
 
 

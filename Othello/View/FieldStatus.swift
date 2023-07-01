@@ -2,7 +2,7 @@
 import Foundation
 
 enum FieldStatus {
-    case none
-    case black
-    case white
+    case 空
+    case 黒
+    case 白
 }
