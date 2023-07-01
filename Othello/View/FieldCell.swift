@@ -1,9 +1,9 @@
 
 import UIKit
 
-class BanCell: UICollectionViewCell {
+class FieldCell: UICollectionViewCell {
     
-    let status: BanStatus = .none
+    let status: FieldStatus = .none
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -1,7 +1,7 @@
 
 import Foundation
 
-enum BanStatus {
+enum FieldStatus {
     case none
     case black
     case white
