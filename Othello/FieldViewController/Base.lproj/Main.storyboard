@@ -18,8 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Gh-4a-0QU">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="229.66666666666663" width="393" height="393"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0Gh-4a-0QU" secondAttribute="height" multiplier="1:1" id="8zj-Rc-HYq"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="3Yg-r1-N7X">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -41,10 +44,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="0Gh-4a-0QU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7pQ-Kn-fwE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Gh-4a-0QU" secondAttribute="trailing" id="PUG-Ml-Hon"/>
                             <constraint firstItem="0Gh-4a-0QU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cBe-y8-ukF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0Gh-4a-0QU" secondAttribute="bottom" id="niD-iJ-ccy"/>
-                            <constraint firstItem="0Gh-4a-0QU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="y6s-cH-LOk"/>
+                            <constraint firstItem="0Gh-4a-0QU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uNO-Bi-laN"/>
                         </constraints>
                     </view>
                     <connections>
