@@ -17,33 +17,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="178" height="177"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="17z-Rj-O7N">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="17z-Rj-O7N" userLabel="Edge View">
                         <rect key="frame" x="0.0" y="0.0" width="178" height="177"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="0"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="to5-ps-U74" userLabel="Bacground View">
+                        <rect key="frame" x="1" y="1" width="176" height="175"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bml-RD-tdm">
-                        <rect key="frame" x="1" y="1" width="176" height="175"/>
+                        <rect key="frame" x="2" y="2" width="174" height="173"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="bml-RD-tdm" secondAttribute="trailing" constant="1" id="3oG-Er-Aus"/>
-                    <constraint firstAttribute="bottom" secondItem="bml-RD-tdm" secondAttribute="bottom" constant="1" id="6Au-i4-8O4"/>
-                    <constraint firstItem="bml-RD-tdm" firstAttribute="top" secondItem="Mkt-1Q-T2n" secondAttribute="top" constant="1" id="RVT-QK-wEE"/>
+                    <constraint firstAttribute="trailing" secondItem="bml-RD-tdm" secondAttribute="trailing" constant="2" id="3oG-Er-Aus"/>
+                    <constraint firstAttribute="bottom" secondItem="bml-RD-tdm" secondAttribute="bottom" constant="2" id="6Au-i4-8O4"/>
+                    <constraint firstItem="to5-ps-U74" firstAttribute="top" secondItem="Mkt-1Q-T2n" secondAttribute="top" constant="1" id="CFz-YY-xh2"/>
+                    <constraint firstAttribute="bottom" secondItem="to5-ps-U74" secondAttribute="bottom" constant="1" id="Ddm-F6-E3a"/>
+                    <constraint firstItem="bml-RD-tdm" firstAttribute="top" secondItem="Mkt-1Q-T2n" secondAttribute="top" constant="2" id="RVT-QK-wEE"/>
+                    <constraint firstAttribute="trailing" secondItem="to5-ps-U74" secondAttribute="trailing" constant="1" id="ZM3-ci-Jcu"/>
                     <constraint firstAttribute="bottom" secondItem="17z-Rj-O7N" secondAttribute="bottom" id="ZMQ-SE-bAH"/>
-                    <constraint firstItem="bml-RD-tdm" firstAttribute="leading" secondItem="Mkt-1Q-T2n" secondAttribute="leading" constant="1" id="a4d-Bq-doo"/>
+                    <constraint firstItem="bml-RD-tdm" firstAttribute="leading" secondItem="Mkt-1Q-T2n" secondAttribute="leading" constant="2" id="a4d-Bq-doo"/>
                     <constraint firstItem="17z-Rj-O7N" firstAttribute="leading" secondItem="Mkt-1Q-T2n" secondAttribute="leading" id="h4c-Su-e0h"/>
                     <constraint firstItem="17z-Rj-O7N" firstAttribute="top" secondItem="Mkt-1Q-T2n" secondAttribute="top" id="kQW-sp-tWT"/>
                     <constraint firstAttribute="trailing" secondItem="17z-Rj-O7N" secondAttribute="trailing" id="nqH-RV-Hgl"/>
+                    <constraint firstItem="to5-ps-U74" firstAttribute="leading" secondItem="Mkt-1Q-T2n" secondAttribute="leading" constant="1" id="qce-PY-VLo"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="178" height="177"/>
+            <connections>
+                <outlet property="fieldView" destination="bml-RD-tdm" id="ZyK-xn-a28"/>
+            </connections>
             <point key="canvasLocation" x="83.969465648854964" y="-347.53521126760563"/>
         </collectionViewCell>
     </objects>

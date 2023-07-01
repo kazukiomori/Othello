@@ -30,7 +30,9 @@ class FieldViewController: UIViewController {
     }
     
     func reloadField() {
-        fieldCollectionView.reloadData()
+        DispatchQueue.main.async {
+            self.fieldCollectionView.reloadData()
+        }
     }
     
     func prepareField() {
@@ -42,14 +44,7 @@ class FieldViewController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         fieldCollectionView.setCollectionViewLayout(layout, animated: false)
-        
-        for x in 0..<Int(FIELD_SIZE.width) {
-            for y in 0..<Int(FIELD_SIZE.height) {
-                
-            }
-        }
     }
-
 
 }
 
@@ -63,7 +58,13 @@ extension FieldViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let x = Int(indexPath.row % Int(FIELD_SIZE.width))
+        let y = Int(indexPath.row / Int(FIELD_SIZE.width))
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FieldCell", for: indexPath) as! FieldCell
+        cell.fieldView.layer.cornerRadius = cell.fieldView.frame.width / 2.0
+        cell.fieldView.layer.masksToBounds = true
+        cell.setStatus(fieldStates[x][y])
+        cell.update()
         return cell
     }
 }

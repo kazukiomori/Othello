@@ -3,14 +3,26 @@ import UIKit
 
 class FieldCell: UICollectionViewCell {
     
-    let status: FieldStatus = .空
+    @IBOutlet weak var fieldView: UIView!
+    var status: FieldStatus = .空
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func update() {
+    func setStatus(_ status: FieldStatus) {
+        self.status = status
+    }
     
+    func update() {
+        switch status {
+        case .黒:
+            self.fieldView.backgroundColor = .black
+        case .白:
+            self.fieldView.backgroundColor = .white
+        case .空:
+            self.fieldView.backgroundColor = .systemGreen
+        }
     }
     
 }
