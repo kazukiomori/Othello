@@ -34,7 +34,8 @@ extension FieldViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Bancell", for: indexPath) as! BanCell
+        return cell
     }
     
     

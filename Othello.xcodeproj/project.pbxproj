@@ -16,6 +16,8 @@
 		3BF9B44F2A504C0000637AAB /* OthelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9B44E2A504C0000637AAB /* OthelloTests.swift */; };
 		3BF9B4592A504C0000637AAB /* OthelloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9B4582A504C0000637AAB /* OthelloUITests.swift */; };
 		3BF9B45B2A504C0000637AAB /* OthelloUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9B45A2A504C0000637AAB /* OthelloUITestsLaunchTests.swift */; };
+		3BF9B46A2A5064F700637AAB /* BanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9B4692A5064F700637AAB /* BanCell.swift */; };
+		3BF9B46C2A50655400637AAB /* BanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BF9B46B2A50655400637AAB /* BanCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		3BF9B4542A504C0000637AAB /* OthelloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OthelloUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BF9B4582A504C0000637AAB /* OthelloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthelloUITests.swift; sourceTree = "<group>"; };
 		3BF9B45A2A504C0000637AAB /* OthelloUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthelloUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3BF9B4692A5064F700637AAB /* BanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanCell.swift; sourceTree = "<group>"; };
+		3BF9B46B2A50655400637AAB /* BanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BanCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +103,10 @@
 		3BF9B4362A504BFD00637AAB /* Othello */ = {
 			isa = PBXGroup;
 			children = (
+				3BF9B4682A5064D800637AAB /* View */,
+				3BF9B4672A50649200637AAB /* FieldViewController */,
 				3BF9B4372A504BFD00637AAB /* AppDelegate.swift */,
 				3BF9B4392A504BFD00637AAB /* SceneDelegate.swift */,
-				3BF9B43B2A504BFD00637AAB /* FieldViewController.swift */,
-				3BF9B43D2A504BFD00637AAB /* Main.storyboard */,
 				3BF9B4402A504C0000637AAB /* Assets.xcassets */,
 				3BF9B4422A504C0000637AAB /* LaunchScreen.storyboard */,
 				3BF9B4452A504C0000637AAB /* Info.plist */,
@@ -125,6 +129,24 @@
 				3BF9B45A2A504C0000637AAB /* OthelloUITestsLaunchTests.swift */,
 			);
 			path = OthelloUITests;
+			sourceTree = "<group>";
+		};
+		3BF9B4672A50649200637AAB /* FieldViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3BF9B43B2A504BFD00637AAB /* FieldViewController.swift */,
+				3BF9B43D2A504BFD00637AAB /* Main.storyboard */,
+			);
+			path = FieldViewController;
+			sourceTree = "<group>";
+		};
+		3BF9B4682A5064D800637AAB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3BF9B4692A5064F700637AAB /* BanCell.swift */,
+				3BF9B46B2A50655400637AAB /* BanCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BF9B4442A504C0000637AAB /* LaunchScreen.storyboard in Resources */,
+				3BF9B46C2A50655400637AAB /* BanCell.xib in Resources */,
 				3BF9B4412A504C0000637AAB /* Assets.xcassets in Resources */,
 				3BF9B43F2A504BFD00637AAB /* Main.storyboard in Resources */,
 			);
@@ -259,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BF9B43C2A504BFD00637AAB /* FieldViewController.swift in Sources */,
+				3BF9B46A2A5064F700637AAB /* BanCell.swift in Sources */,
 				3BF9B4382A504BFD00637AAB /* AppDelegate.swift in Sources */,
 				3BF9B43A2A504BFD00637AAB /* SceneDelegate.swift in Sources */,
 			);
