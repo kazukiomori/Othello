@@ -19,7 +19,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="17z-Rj-O7N">
                         <rect key="frame" x="0.0" y="0.0" width="178" height="177"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="0"/>
@@ -27,9 +27,17 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bml-RD-tdm">
+                        <rect key="frame" x="1" y="1" width="176" height="175"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="bml-RD-tdm" secondAttribute="trailing" constant="1" id="3oG-Er-Aus"/>
+                    <constraint firstAttribute="bottom" secondItem="bml-RD-tdm" secondAttribute="bottom" constant="1" id="6Au-i4-8O4"/>
+                    <constraint firstItem="bml-RD-tdm" firstAttribute="top" secondItem="Mkt-1Q-T2n" secondAttribute="top" constant="1" id="RVT-QK-wEE"/>
                     <constraint firstAttribute="bottom" secondItem="17z-Rj-O7N" secondAttribute="bottom" id="ZMQ-SE-bAH"/>
+                    <constraint firstItem="bml-RD-tdm" firstAttribute="leading" secondItem="Mkt-1Q-T2n" secondAttribute="leading" constant="1" id="a4d-Bq-doo"/>
                     <constraint firstItem="17z-Rj-O7N" firstAttribute="leading" secondItem="Mkt-1Q-T2n" secondAttribute="leading" id="h4c-Su-e0h"/>
                     <constraint firstItem="17z-Rj-O7N" firstAttribute="top" secondItem="Mkt-1Q-T2n" secondAttribute="top" id="kQW-sp-tWT"/>
                     <constraint firstAttribute="trailing" secondItem="17z-Rj-O7N" secondAttribute="trailing" id="nqH-RV-Hgl"/>
@@ -40,8 +48,11 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
