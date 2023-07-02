@@ -56,8 +56,10 @@ extension FieldViewController: UICollectionViewDelegate {
         switch turn {
         case .黒:
             fieldStates[x][y] = .黒
+            turn = .白
         case .白:
             fieldStates[x][y] = .白
+            turn = .黒
         default:
             break
         }
