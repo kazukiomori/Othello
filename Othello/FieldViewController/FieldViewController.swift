@@ -13,6 +13,7 @@ class FieldViewController: UIViewController {
         [.空,.空,.空,.空,.空,.空,.空,.空],
         [.空,.空,.空,.空,.空,.空,.空,.空]
     ]
+    var turn: FieldStatus = .黒
 
     @IBOutlet weak var fieldCollectionView: UICollectionView! {
         didSet {
@@ -49,7 +50,19 @@ class FieldViewController: UIViewController {
 }
 
 extension FieldViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let x = Int(indexPath.row % Int(FIELD_SIZE.width))
+        let y = Int(indexPath.row / Int(FIELD_SIZE.width))
+        switch turn {
+        case .黒:
+            fieldStates[x][y] = .黒
+        case .白:
+            fieldStates[x][y] = .白
+        default:
+            break
+        }
+        reloadField()
+    }
 }
 
 extension FieldViewController: UICollectionViewDataSource {
