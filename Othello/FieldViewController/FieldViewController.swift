@@ -46,6 +46,10 @@ class FieldViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         fieldCollectionView.setCollectionViewLayout(layout, animated: false)
     }
+    
+    func getStatus(position: Position) -> FieldStatus {
+        fieldStates[position.y][position.x]
+    }
 
 }
 
