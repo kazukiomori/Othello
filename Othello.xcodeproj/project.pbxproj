@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B09C7522B03F32E000BADFF /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B09C7512B03F32E000BADFF /* Position.swift */; };
 		3BF9B4382A504BFD00637AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9B4372A504BFD00637AAB /* AppDelegate.swift */; };
 		3BF9B43A2A504BFD00637AAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9B4392A504BFD00637AAB /* SceneDelegate.swift */; };
 		3BF9B43C2A504BFD00637AAB /* FieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9B43B2A504BFD00637AAB /* FieldViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B09C7512B03F32E000BADFF /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		3BF9B4342A504BFD00637AAB /* Othello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Othello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BF9B4372A504BFD00637AAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BF9B4392A504BFD00637AAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B09C7502B03F2F4000BADFF /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				3B09C7512B03F32E000BADFF /* Position.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		3BF9B42B2A504BFD00637AAB = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 		3BF9B4362A504BFD00637AAB /* Othello */ = {
 			isa = PBXGroup;
 			children = (
+				3B09C7502B03F2F4000BADFF /* Entity */,
 				3BF9B4682A5064D800637AAB /* View */,
 				3BF9B4672A50649200637AAB /* FieldViewController */,
 				3BF9B4372A504BFD00637AAB /* AppDelegate.swift */,
@@ -286,6 +297,7 @@
 			files = (
 				3BF9B43C2A504BFD00637AAB /* FieldViewController.swift in Sources */,
 				3BF9B46A2A5064F700637AAB /* FieldCell.swift in Sources */,
+				3B09C7522B03F32E000BADFF /* Position.swift in Sources */,
 				3BF9B4382A504BFD00637AAB /* AppDelegate.swift in Sources */,
 				3BF9B46E2A50688800637AAB /* FieldStatus.swift in Sources */,
 				3BF9B43A2A504BFD00637AAB /* SceneDelegate.swift in Sources */,
