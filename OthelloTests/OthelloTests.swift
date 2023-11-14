@@ -9,13 +9,12 @@ import XCTest
 @testable import Othello
 
 final class OthelloTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func test_Positionのテスト() throws {
+        XCTAssertNotNil(Position(x: 0, y: 0))
+        XCTAssertNil(Position(x: 8, y: 0))
+        XCTAssertNil(Position(x: 0, y: 8))
+        XCTAssertNil(Position(x: -1, y: 0))
     }
 
     func testExample() throws {
