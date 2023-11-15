@@ -1,15 +1,30 @@
 
 import Foundation
 
-enum FieldStatus {
+enum FieldStatus: Equatable {
     case 空
     case 黒
     case 白
+    
+    var color: Color? {
+        switch self {
+        case .空: return nil
+        case .黒: return .黒
+        case .白: return .白
+        }
+    }
 }
 
-enum Color {
+enum Color: Equatable {
     case 黒
     case 白
+    
+    var reverseColor: Color {
+        switch self {
+        case .黒: return .白
+        case .白: return .黒
+        }
+    }
 }
 
 enum direction {
