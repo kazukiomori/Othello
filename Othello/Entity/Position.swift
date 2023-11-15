@@ -19,4 +19,8 @@ struct Position {
     
     let x: Int
     let y: Int
+    
+    func getNextPosition(direction: direction) -> Position? {
+        Position(x: x + direction.dx, y: y + direction.dy)
+    }
 }
