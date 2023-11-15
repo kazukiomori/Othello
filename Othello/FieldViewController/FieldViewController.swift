@@ -50,6 +50,14 @@ class FieldViewController: UIViewController {
     func getStatus(position: Position) -> FieldStatus {
         fieldStates[position.y][position.x]
     }
+    
+    func getFieldsOnLine(start: Position, direction: direction) -> [(Position, FieldStatus)] {
+        if let nextPosition = start.getNextPosition(direction: direction) {
+            return [(start, getStatus(position: start))] + getFieldsOnLine(start: nextPosition, direction: direction)
+        } else {
+            return [(start, getStatus(position: start))]
+        }
+    }
 
 }
 
