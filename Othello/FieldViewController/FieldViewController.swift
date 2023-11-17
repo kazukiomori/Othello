@@ -58,6 +58,13 @@ class FieldViewController: UIViewController {
             return [(start, getStatus(position: start))]
         }
     }
+    
+    func isSetOthello(position: Position, color: Color) -> Bool {
+        return direction.allCases
+            .map{ getFieldsOnLine(start: position, direction: $0).map {$0.1} }
+            .map { $0.isSetOthello(color: color)}
+            .contains(true)
+    }
 
 }
 

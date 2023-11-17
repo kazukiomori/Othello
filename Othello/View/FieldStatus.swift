@@ -27,7 +27,7 @@ enum Color: Equatable {
     }
 }
 
-enum direction {
+enum direction: CaseIterable {
     case 上
     case 右上
     case 右
