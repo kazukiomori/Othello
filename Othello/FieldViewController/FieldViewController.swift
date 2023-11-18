@@ -72,6 +72,11 @@ extension FieldViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let x = Int(indexPath.row % Int(FIELD_SIZE.width))
         let y = Int(indexPath.row / Int(FIELD_SIZE.width))
+        
+        if !isSetOthello(position: Position(x: x, y: y)!, color: turn.color!) {
+            return
+        }
+        
         switch turn {
         case .黒:
             fieldStates[x][y] = .黒
