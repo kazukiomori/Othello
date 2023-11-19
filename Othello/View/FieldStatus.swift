@@ -51,11 +51,11 @@ enum direction: CaseIterable {
     var dy: Int {
         switch self {
         case .左上, .上, .右上:
-            return 1
+            return -1
         case .左, .右:
             return 0
         case .左下, .下, .右下:
-            return -1
+            return 1
         }
     }
 }
