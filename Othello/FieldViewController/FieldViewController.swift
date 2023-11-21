@@ -53,8 +53,7 @@ class FieldViewController: UIViewController {
     
     func getFieldsOnLine(start: Position, direction: direction) -> [(Position, FieldStatus)] {
         if let nextPosition = start.getNextPosition(direction: direction) {
-            var fieldsOnLine = [(start, getStatus(position: start))] + getFieldsOnLine(start: nextPosition, direction: direction)
-            return fieldsOnLine
+            return [(start, getStatus(position: start))] + getFieldsOnLine(start: nextPosition, direction: direction)
         } else {
             return [(start, getStatus(position: start))]
         }
@@ -66,7 +65,17 @@ class FieldViewController: UIViewController {
             .map { $0.isSetOthello(color: color)}
             .contains(true)
     }
-
+    
+    func getDirectionCanSetOthello(position: Position, color: Color) -> [direction] {
+        var directions: [direction] = []
+        direction.allCases.forEach {
+            let onlins = getFieldsOnLine(start: position, direction: $0).map {$0.1}
+            if onlins.isSetOthello(color: color) {
+                directions.append($0)
+            }
+        }
+        return directions
+    }
 }
 
 extension FieldViewController: UICollectionViewDelegate {
