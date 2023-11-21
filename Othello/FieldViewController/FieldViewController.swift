@@ -66,7 +66,7 @@ class FieldViewController: UIViewController {
             .contains(true)
     }
     
-    func getDirectionCanSetOthello(position: Position, color: Color) -> [direction] {
+    func turnOthello(position: Position, color: Color) {
         var directions: [direction] = []
         direction.allCases.forEach {
             let onlins = getFieldsOnLine(start: position, direction: $0).map {$0.1}
@@ -74,7 +74,16 @@ class FieldViewController: UIViewController {
                 directions.append($0)
             }
         }
-        return directions
+        
+        directions.forEach {
+            let Fields = getFieldsOnLine(start: position, direction: $0)
+            Fields.forEach {
+                if $1.color == color {
+                    return
+                }
+                fieldStates[$0.x][$0.y] = color.status
+            }
+        }
     }
 }
 
@@ -86,6 +95,8 @@ extension FieldViewController: UICollectionViewDelegate {
         if !isSetOthello(position: Position(x: x, y: y)!, color: turn.color!) {
             return
         }
+        
+        turnOthello(position: Position(x: x, y: y)!, color: turn.color!)
         
         switch turn {
         case .黒:

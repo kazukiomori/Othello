@@ -25,6 +25,13 @@ enum Color: Equatable {
         case .白: return .黒
         }
     }
+    
+    var status: FieldStatus {
+        switch self {
+        case .黒: return .黒
+        case .白: return .白
+        }
+    }
 }
 
 enum direction: CaseIterable {
