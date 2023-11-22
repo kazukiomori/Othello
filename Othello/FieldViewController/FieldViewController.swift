@@ -77,11 +77,11 @@ class FieldViewController: UIViewController {
         
         directions.forEach {
             let Fields = getFieldsOnLine(start: position, direction: $0)
-            Fields.forEach {
-                if $1.color == color {
-                    return
+            for (Position, FieldStatus) in Fields {
+                if FieldStatus.color == color {
+                    break
                 }
-                fieldStates[$0.x][$0.y] = color.status
+                fieldStates[Position.x][Position.y] = color.status
             }
         }
     }
