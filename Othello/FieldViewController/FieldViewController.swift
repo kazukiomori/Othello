@@ -85,6 +85,20 @@ class FieldViewController: UIViewController {
             }
         }
     }
+    
+    func getEmptyIndices() -> [(row: Int, column: Int)] {
+        var emptyIndices: [(row: Int, column: Int)] = []
+
+        for (rowIndex, row) in fieldStates.enumerated() {
+            for (columnIndex, status) in row.enumerated() {
+                if status == .空 {
+                    emptyIndices.append((row: rowIndex, column: columnIndex))
+                }
+            }
+        }
+
+        return emptyIndices
+    }
 }
 
 extension FieldViewController: UICollectionViewDelegate {
