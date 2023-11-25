@@ -80,8 +80,9 @@ class FieldViewController: UIViewController {
             for (Position, FieldStatus) in Fields {
                 if FieldStatus.color == color {
                     break
+                } else if FieldStatus.color == color.reverseColor {
+                    fieldStates[Position.x][Position.y] = color.status
                 }
-                fieldStates[Position.x][Position.y] = color.status
             }
         }
     }
