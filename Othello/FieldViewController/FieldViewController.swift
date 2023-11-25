@@ -86,18 +86,18 @@ class FieldViewController: UIViewController {
         }
     }
     
-    func getEmptyIndices() -> [(row: Int, column: Int)] {
-        var emptyIndices: [(row: Int, column: Int)] = []
+    func getEmptyIndices() -> [Position] {
+        var emptyPositions: [Position] = []
 
         for (rowIndex, row) in fieldStates.enumerated() {
             for (columnIndex, status) in row.enumerated() {
                 if status == .空 {
-                    emptyIndices.append((row: rowIndex, column: columnIndex))
+                    let position = Position(x: rowIndex, y: columnIndex)!
+                    emptyPositions.append(position)
                 }
             }
         }
-
-        return emptyIndices
+        return emptyPositions
     }
 }
 
