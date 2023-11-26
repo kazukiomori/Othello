@@ -87,7 +87,7 @@ class FieldViewController: UIViewController {
         }
     }
     
-    func getEmptyIndices() -> [Position] {
+    func getEmptyPositions() -> [Position] {
         var emptyPositions: [Position] = []
 
         for (rowIndex, row) in fieldStates.enumerated() {
