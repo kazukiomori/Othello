@@ -14,6 +14,9 @@ class FieldViewController: UIViewController {
         [.空,.空,.空,.空,.空,.空,.空,.空]
     ]
     var turn: FieldStatus = .黒
+    
+    var whiteCount: Int = 2
+    var blackCount: Int = 2
 
     @IBOutlet weak var fieldCollectionView: UICollectionView! {
         didSet {
