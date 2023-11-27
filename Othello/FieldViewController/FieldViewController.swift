@@ -17,6 +17,8 @@ class FieldViewController: UIViewController {
     
     var whiteCount: Int = 2
     var blackCount: Int = 2
+    
+    var retryFlag = true
 
     @IBOutlet weak var fieldCollectionView: UICollectionView! {
         didSet {
@@ -103,6 +105,24 @@ class FieldViewController: UIViewController {
         }
         return emptyPositions
     }
+    
+    func isGameOver(color: Color) -> Bool {
+        let emptyPositions = getEmptyPositions()
+        let notFinish = emptyPositions
+            .map { isSetOthello(position: $0, color: color) }
+            .contains(true)
+        if notFinish {
+            return false
+        }
+        
+        if retryFlag {
+            retryFlag = false
+            isGameOver(color: color.reverseColor)
+            return false
+        }
+            return true
+    }
+    
 }
 
 extension FieldViewController: UICollectionViewDelegate {
