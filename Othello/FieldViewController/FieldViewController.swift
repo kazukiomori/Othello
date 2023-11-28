@@ -106,6 +106,13 @@ class FieldViewController: UIViewController {
         return emptyPositions
     }
     
+    func canSetStone(color: Color) -> Bool {
+        let emptyPositions = getEmptyPositions()
+        return emptyPositions
+            .map { isSetOthello(position: $0, color: color) }
+            .contains(true)
+    }
+    
     func isGameOver(color: Color) -> Bool {
         let emptyPositions = getEmptyPositions()
         let notFinish = emptyPositions
@@ -147,6 +154,22 @@ extension FieldViewController: UICollectionViewDelegate {
             break
         }
         reloadField()
+        
+        getColorsCount()
+        
+        // 次の色が置くことができるかチェックする　できないならパス　パスした色も置けないならゲーム終了
+        if canSetStone(color: turn.color!) {
+            return
+        } else if canSetStone(color: turn.color!.reverseColor) {
+            print("\(turn.color!)は置くところがありません。\(String(describing: turn.color?.reverseColor))の番です。")
+            turn = (turn.color?.reverseColor.status)!
+        } else {
+            if whiteCount > blackCount {
+                print("白の勝ち")
+            } else {
+                print("黒の勝ち")
+            }
+        }
     }
 }
 
