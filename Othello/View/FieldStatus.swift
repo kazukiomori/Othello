@@ -13,6 +13,14 @@ enum FieldStatus: Equatable {
         case .白: return .白
         }
     }
+    
+    var reverseTurn: FieldStatus? {
+        switch self {
+        case .黒: return .白
+        case .白: return .黒
+        case .空: return nil
+        }
+    }
 }
 
 enum Color: Equatable {
