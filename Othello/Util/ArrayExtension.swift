@@ -30,6 +30,8 @@ extension Array where Element == FieldStatus {
         return removedArray.count >= 3 &&
         removedArray[0] == .空 &&
         removedArray[1].color == color.reverseColor &&
-        removedArray[2].color == color
+        removedArray[2].color == color &&
+        self[1] != .空 &&
+        self[2] != .空
     }
 }
