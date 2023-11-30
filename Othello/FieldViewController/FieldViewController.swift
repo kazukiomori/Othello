@@ -130,6 +130,21 @@ class FieldViewController: UIViewController {
             return true
     }
     
+    func getColorsCount() {
+        var white = 0
+        var black = 0
+        for row in fieldStates {
+            for status in row {
+                if status == .白 {
+                    white += 1
+                } else if status == .黒 {
+                    black += 1
+                }
+            }
+        }
+        whiteCount = white
+        blackCount = black
+    }
 }
 
 extension FieldViewController: UICollectionViewDelegate {
