@@ -19,6 +19,8 @@ class FieldViewController: UIViewController {
     var blackCount: Int = 2
     
     var retryFlag = true
+    
+    var isOffline = true
 
     @IBOutlet weak var fieldCollectionView: UICollectionView! {
         didSet {

@@ -15,11 +15,15 @@ class FirstViewController: UIViewController {
     }
    
     @IBAction func tappedOffline(_ sender: Any) {
-        
+        let nextViewController = FieldViewController()
+        nextViewController.isOffline = true
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
     
     @IBAction func tappedComputer(_ sender: Any) {
-        
+        let nextViewController = FieldViewController()
+        nextViewController.isOffline = true
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
     
 }
