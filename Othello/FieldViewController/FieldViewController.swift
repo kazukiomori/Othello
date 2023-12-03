@@ -37,6 +37,11 @@ class FieldViewController: UIViewController {
         reloadField()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        reloadField()
+    }
+    
     func reloadField() {
         DispatchQueue.main.async {
             self.fieldCollectionView.reloadData()
