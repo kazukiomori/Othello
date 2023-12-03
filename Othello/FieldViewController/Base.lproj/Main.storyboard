@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hcv-e7-Wfj">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Field View Controller-->
+        <!--FieldViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FieldViewController" customModule="Othello" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="FieldViewController" storyboardIdentifier="FieldViewController" title="FieldViewController" wantsFullScreenLayout="YES" id="BYZ-38-t0r" customClass="FieldViewController" customModule="Othello" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,6 +58,72 @@
             </objects>
             <point key="canvasLocation" x="18" y="-2"/>
         </scene>
+        <!--First View Controller-->
+        <scene sceneID="CKh-0m-hI9">
+            <objects>
+                <viewController id="hcv-e7-Wfj" customClass="FirstViewController" customModule="Othello" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SeO-YZ-crk">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="オセロ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfp-Df-Dlh">
+                                <rect key="frame" x="20" y="79" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="g9Z-cM-CYi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="035-q6-aUD">
+                                <rect key="frame" x="30" y="229" width="333" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="d3F-tW-3WU"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="tintColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="オフライン対戦">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="tappedOffline:" destination="hcv-e7-Wfj" eventType="touchUpInside" id="ljC-ad-lIv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wV0-nS-gHj">
+                                <rect key="frame" x="30" y="389" width="333" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="TSJ-Kw-joA"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="jTB-qT-xN7"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="tintColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="コンピュータ対戦">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="tappedComputer:" destination="hcv-e7-Wfj" eventType="touchUpInside" id="9GR-SS-Xp8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="m1a-sO-W7e"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="035-q6-aUD" firstAttribute="top" secondItem="cfp-Df-Dlh" secondAttribute="bottom" constant="100" id="03Z-F1-o1n"/>
+                            <constraint firstItem="m1a-sO-W7e" firstAttribute="trailing" secondItem="wV0-nS-gHj" secondAttribute="trailing" constant="30" id="0MK-TF-Sw2"/>
+                            <constraint firstItem="cfp-Df-Dlh" firstAttribute="leading" secondItem="m1a-sO-W7e" secondAttribute="leading" constant="20" id="0l7-dp-5e9"/>
+                            <constraint firstItem="m1a-sO-W7e" firstAttribute="trailing" secondItem="035-q6-aUD" secondAttribute="trailing" constant="30" id="9L4-5L-MLy"/>
+                            <constraint firstItem="035-q6-aUD" firstAttribute="leading" secondItem="m1a-sO-W7e" secondAttribute="leading" constant="30" id="LeL-Ya-x7h"/>
+                            <constraint firstItem="cfp-Df-Dlh" firstAttribute="top" secondItem="m1a-sO-W7e" secondAttribute="top" constant="20" id="aJk-Yd-22D"/>
+                            <constraint firstItem="wV0-nS-gHj" firstAttribute="leading" secondItem="m1a-sO-W7e" secondAttribute="leading" constant="30" id="cNz-VP-3gi"/>
+                            <constraint firstItem="wV0-nS-gHj" firstAttribute="top" secondItem="035-q6-aUD" secondAttribute="bottom" constant="100" id="e3L-X6-gjT"/>
+                            <constraint firstItem="m1a-sO-W7e" firstAttribute="trailing" secondItem="cfp-Df-Dlh" secondAttribute="trailing" constant="20" id="ikq-TY-SbH"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p6U-GS-Zdw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-938" y="-2"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
@@ -65,6 +131,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

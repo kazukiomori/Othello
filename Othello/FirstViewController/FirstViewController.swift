@@ -14,16 +14,20 @@ class FirstViewController: UIViewController {
         
     }
    
+    func gotoFieldViewController(_ isOffline: Bool) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        guard let FieldViewController = storyBoard.instantiateViewController(withIdentifier: "FieldViewController") as? FieldViewController else { return }
+        FieldViewController.isOffline = isOffline
+        FieldViewController.modalPresentationStyle = .fullScreen
+        present(FieldViewController, animated: true)
+    }
+    
     @IBAction func tappedOffline(_ sender: Any) {
-        let nextViewController = FieldViewController()
-        nextViewController.isOffline = true
-        navigationController?.pushViewController(nextViewController, animated: true)
+        gotoFieldViewController(true)
     }
     
     @IBAction func tappedComputer(_ sender: Any) {
-        let nextViewController = FieldViewController()
-        nextViewController.isOffline = true
-        navigationController?.pushViewController(nextViewController, animated: true)
+        gotoFieldViewController(false)
     }
     
 }
