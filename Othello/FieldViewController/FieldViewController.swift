@@ -21,7 +21,16 @@ class FieldViewController: UIViewController {
     var retryFlag = true
     
     var isOffline = true
-
+    
+    @IBOutlet weak var whiteUserBack: UIView!
+    @IBOutlet weak var whiteBackHeight: NSLayoutConstraint!
+    @IBOutlet weak var whiteUser: UIView!
+    @IBOutlet weak var whiteCountLabel: UILabel!
+    @IBOutlet weak var whiteTimerLabel: UILabel!
+    @IBOutlet weak var blackUser: UIView!
+    @IBOutlet weak var blackCountLabel: UILabel!
+    @IBOutlet weak var blackTimerLabel: UILabel!
+    
     @IBOutlet weak var fieldCollectionView: UICollectionView! {
         didSet {
             fieldCollectionView.dataSource = self
@@ -40,6 +49,7 @@ class FieldViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         reloadField()
+        prepareUser() 
     }
     
     func reloadField() {
@@ -57,6 +67,18 @@ class FieldViewController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         fieldCollectionView.setCollectionViewLayout(layout, animated: false)
+    }
+    
+    func prepareUser() {
+        whiteUserBack.backgroundColor = .black
+        whiteUser.layer.cornerRadius = blackUser.frame.width / 2.0
+        whiteUser.layer.masksToBounds = true
+        whiteUser.backgroundColor = .white
+        whiteCountLabel.text = String(whiteCount)
+        blackUser.layer.cornerRadius = blackUser.frame.width / 2.0
+        blackUser.layer.masksToBounds = true
+        blackUser.backgroundColor = .black
+        blackCountLabel.text = String(blackCount)
     }
     
     func getStatus(position: Position) -> FieldStatus {
@@ -150,7 +172,9 @@ class FieldViewController: UIViewController {
             }
         }
         whiteCount = white
+        whiteCountLabel.text = String(whiteCount)
         blackCount = black
+        blackCountLabel.text = String(blackCount)
     }
 }
 
