@@ -22,8 +22,7 @@ class FieldViewController: UIViewController {
     
     var isOffline = true
     
-    let rightButtonAction = { return }
-    
+    func rightButtonAction() -> (() -> Void) {{ [weak self] in self?.resetField() }}
     @IBOutlet weak var whiteUserBack: UIView!
     @IBOutlet weak var whiteBackHeight: NSLayoutConstraint!
     @IBOutlet weak var whiteUser: UIView!
@@ -193,6 +192,21 @@ class FieldViewController: UIViewController {
         alertController.addAction(leftButton)
         present(alertController, animated: true)
     }
+    
+    func resetField() {
+    fieldStates = [
+        [.空,.空,.空,.空,.空,.空,.空,.空],
+        [.空,.空,.空,.空,.空,.空,.空,.空],
+        [.空,.空,.空,.空,.空,.空,.空,.空],
+        [.空,.空,.空,.白,.黒,.空,.空,.空],
+        [.空,.空,.空,.黒,.白,.空,.空,.空],
+        [.空,.空,.空,.空,.空,.空,.空,.空],
+        [.空,.空,.空,.空,.空,.空,.空,.空],
+        [.空,.空,.空,.空,.空,.空,.空,.空]
+    ]
+        reloadField()
+        getColorsCount()
+    }
 }
 
 extension FieldViewController: UICollectionViewDelegate {
@@ -220,6 +234,7 @@ extension FieldViewController: UICollectionViewDelegate {
         
         getColorsCount()
         
+        var rightAction = rightButtonAction()
         // 次の色が置くことができるかチェックする　できないならパス　パスした色も置けないならゲーム終了
         if canSetStone(color: turn.color!) {
             return
@@ -228,9 +243,9 @@ extension FieldViewController: UICollectionViewDelegate {
             turn = (turn.color?.reverseColor.status)!
         } else {
             if whiteCount > blackCount {
-                showAlert(title: "白の勝ち。", message: "\(whiteCount)対\(blackCount)で白の勝ちです。\nもう一度ゲームを続けますか？", rightButtonTitle: "続ける", rightButtonAction: self.rightButtonAction, leftButtonTitle: "キャンセル", leftButtonAction: self.rightButtonAction)
+                showAlert(title: "白の勝ち。", message: "\(whiteCount)対\(blackCount)で白の勝ちです。\nもう一度ゲームを続けますか？", rightButtonTitle: "続ける", rightButtonAction: rightAction, leftButtonTitle: "キャンセル", leftButtonAction: rightAction)
             } else {
-                showAlert(title: "黒の勝ち。", message: "\(blackCount)対\(whiteCount)で黒の勝ちです。\nもう一度ゲームを続けますか？", rightButtonTitle: "続ける", rightButtonAction: self.rightButtonAction, leftButtonTitle: "キャンセル", leftButtonAction: self.rightButtonAction)
+                showAlert(title: "黒の勝ち。", message: "\(blackCount)対\(whiteCount)で黒の勝ちです。\nもう一度ゲームを続けますか？", rightButtonTitle: "続ける", rightButtonAction: rightAction, leftButtonTitle: "キャンセル", leftButtonAction: rightAction)
             }
         }
     }
