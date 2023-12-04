@@ -22,6 +22,8 @@ class FieldViewController: UIViewController {
     
     var isOffline = true
     
+    let rightButtonAction = { return }
+    
     @IBOutlet weak var whiteUserBack: UIView!
     @IBOutlet weak var whiteBackHeight: NSLayoutConstraint!
     @IBOutlet weak var whiteUser: UIView!
@@ -176,6 +178,21 @@ class FieldViewController: UIViewController {
         blackCount = black
         blackCountLabel.text = String(blackCount)
     }
+    
+    func showAlert(title: String, message: String, rightButtonTitle: String, rightButtonAction: (() -> Void)?, leftButtonTitle: String, leftButtonAction: (() -> Void)?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let rightButton = UIAlertAction(title: rightButtonTitle, style: .default) { _ in
+            rightButtonAction?()
+        }
+        alertController.addAction(rightButton)
+        
+        let leftButton = UIAlertAction(title: leftButtonTitle, style: .cancel) { _ in
+            leftButtonAction?()
+        }
+        alertController.addAction(leftButton)
+        present(alertController, animated: true)
+    }
 }
 
 extension FieldViewController: UICollectionViewDelegate {
@@ -211,9 +228,9 @@ extension FieldViewController: UICollectionViewDelegate {
             turn = (turn.color?.reverseColor.status)!
         } else {
             if whiteCount > blackCount {
-                print("白の勝ち")
+                showAlert(title: "白の勝ち。", message: "\(whiteCount)対\(blackCount)で白の勝ちです。\nもう一度ゲームを続けますか？", rightButtonTitle: "続ける", rightButtonAction: self.rightButtonAction, leftButtonTitle: "キャンセル", leftButtonAction: self.rightButtonAction)
             } else {
-                print("黒の勝ち")
+                showAlert(title: "黒の勝ち。", message: "\(blackCount)対\(whiteCount)で黒の勝ちです。\nもう一度ゲームを続けますか？", rightButtonTitle: "続ける", rightButtonAction: self.rightButtonAction, leftButtonTitle: "キャンセル", leftButtonAction: self.rightButtonAction)
             }
         }
     }
