@@ -23,6 +23,8 @@ class FieldViewController: UIViewController {
     var isOffline = true
     
     func rightButtonAction() -> (() -> Void) {{ [weak self] in self?.resetField() }}
+    func leftButtonAction() -> (() -> Void) {{ self.dismiss(animated: true, completion: nil)}}
+    func cancelButtonAction() -> (() -> Void) {{ return }}
     @IBOutlet weak var whiteUserBack: UIView!
     @IBOutlet weak var whiteBackHeight: NSLayoutConstraint!
     @IBOutlet weak var whiteUser: UIView!
@@ -234,7 +236,9 @@ extension FieldViewController: UICollectionViewDelegate {
         
         getColorsCount()
         
-        var rightAction = rightButtonAction()
+        let rightAction = rightButtonAction()
+        let leftAction = cancelButtonAction()
+        
         // 次の色が置くことができるかチェックする　できないならパス　パスした色も置けないならゲーム終了
         if canSetStone(color: turn.color!) {
             return
@@ -243,9 +247,9 @@ extension FieldViewController: UICollectionViewDelegate {
             turn = (turn.color?.reverseColor.status)!
         } else {
             if whiteCount > blackCount {
-                showAlert(title: "白の勝ち。", message: "\(whiteCount)対\(blackCount)で白の勝ちです。\nもう一度ゲームを続けますか？", rightButtonTitle: "続ける", rightButtonAction: rightAction, leftButtonTitle: "キャンセル", leftButtonAction: rightAction)
+                showAlert(title: "白の勝ち。", message: "\(whiteCount)対\(blackCount)で白の勝ちです。\nもう一度ゲームを続けますか？", rightButtonTitle: "続ける", rightButtonAction: rightAction, leftButtonTitle: "キャンセル", leftButtonAction: leftAction)
             } else {
-                showAlert(title: "黒の勝ち。", message: "\(blackCount)対\(whiteCount)で黒の勝ちです。\nもう一度ゲームを続けますか？", rightButtonTitle: "続ける", rightButtonAction: rightAction, leftButtonTitle: "キャンセル", leftButtonAction: rightAction)
+                showAlert(title: "黒の勝ち。", message: "\(blackCount)対\(whiteCount)で黒の勝ちです。\nもう一度ゲームを続けますか？", rightButtonTitle: "続ける", rightButtonAction: rightAction, leftButtonTitle: "キャンセル", leftButtonAction: leftAction)
             }
         }
     }
