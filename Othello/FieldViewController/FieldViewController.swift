@@ -209,6 +209,10 @@ class FieldViewController: UIViewController {
         reloadField()
         getColorsCount()
     }
+    
+    func getFieldCanSet(color: Color) -> [Position] {
+        
+    }
 }
 
 extension FieldViewController: UICollectionViewDelegate {
