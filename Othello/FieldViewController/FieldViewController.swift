@@ -211,7 +211,14 @@ class FieldViewController: UIViewController {
     }
     
     func getFieldCanSet(color: Color) -> [Position] {
-        
+        let emptyPositions = getEmptyPositions()
+        var canSetFields: [Position] = []
+        emptyPositions.forEach { emptyPosition in
+            if isSetOthello(position: emptyPosition, color: color) {
+                canSetFields.append(emptyPosition)
+            }
+        }
+        return canSetFields
     }
 }
 
