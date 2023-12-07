@@ -210,7 +210,7 @@ class FieldViewController: UIViewController {
         getColorsCount()
     }
     
-    func computerPlay(color: Color) -> Position? {
+    func getRandomField(color: Color) -> Position? {
         let canSetFields = getFieldCanSet(color: color)
         return canSetFields.randomElement()
     }
@@ -228,10 +228,7 @@ class FieldViewController: UIViewController {
 }
 
 extension FieldViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let x = Int(indexPath.row % Int(FIELD_SIZE.width))
-        let y = Int(indexPath.row / Int(FIELD_SIZE.width))
-        
+    fileprivate func othelloLogicAfterSetStone(_ x: Int, _ y: Int) {
         if !isSetOthello(position: Position(x: x, y: y)!, color: turn.color!) {
             return
         }
@@ -257,7 +254,7 @@ extension FieldViewController: UICollectionViewDelegate {
         
         // 次の色が置くことができるかチェックする　できないならパス　パスした色も置けないならゲーム終了
         if canSetStone(color: turn.color!) {
-            return
+            
         } else if canSetStone(color: turn.color!.reverseColor) {
             print("\(turn.color!)は置くところがありません。\(String(describing: turn.color?.reverseColor))の番です。")
             turn = (turn.color?.reverseColor.status)!
@@ -267,6 +264,18 @@ extension FieldViewController: UICollectionViewDelegate {
             } else {
                 showAlert(title: "黒の勝ち。", message: "\(blackCount)対\(whiteCount)で黒の勝ちです。\nもう一度ゲームを続けますか？", rightButtonTitle: "続ける", rightButtonAction: rightAction, leftButtonTitle: "キャンセル", leftButtonAction: leftAction)
             }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let x = Int(indexPath.row % Int(FIELD_SIZE.width))
+        let y = Int(indexPath.row / Int(FIELD_SIZE.width))
+        
+        othelloLogicAfterSetStone(x, y)
+        
+        if !isOffline {
+            guard let field = getRandomField(color: turn.color!) else { return }
+            othelloLogicAfterSetStone(field.x, field.y)
         }
     }
 }
