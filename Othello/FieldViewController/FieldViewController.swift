@@ -210,6 +210,11 @@ class FieldViewController: UIViewController {
         getColorsCount()
     }
     
+    func computerPlay(color: Color) -> Position? {
+        let canSetFields = getFieldCanSet(color: color)
+        return canSetFields.randomElement()
+    }
+    
     func getFieldCanSet(color: Color) -> [Position] {
         let emptyPositions = getEmptyPositions()
         var canSetFields: [Position] = []
