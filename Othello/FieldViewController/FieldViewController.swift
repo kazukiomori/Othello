@@ -274,9 +274,11 @@ extension FieldViewController: UICollectionViewDelegate {
         othelloLogicAfterSetStone(x, y)
         
         if !isOffline {
-            guard let field = getRandomField(color: turn.color!) else { return }
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.othelloLogicAfterSetStone(field.x, field.y)
+                while self.turn == .白 {
+                    guard let field = self.getRandomField(color: self.turn.color!) else { return }
+                    self.othelloLogicAfterSetStone(field.x, field.y)
+                }
             }
         }
     }
