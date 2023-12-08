@@ -190,6 +190,30 @@
                                     <action selector="tappedComputer:" destination="hcv-e7-Wfj" eventType="touchUpInside" id="9GR-SS-Xp8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="持ち時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxz-yD-e6P">
+                                <rect key="frame" x="30" y="549" width="333" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="C4R-Vs-wch"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ANq-ik-Hhj">
+                                <rect key="frame" x="30" y="599" width="333" height="41"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="vaj-NU-tXm"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="無制限"/>
+                                    <segment title="2分切負け"/>
+                                    <segment title="1手10秒"/>
+                                </segments>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <color key="selectedSegmentTintColor" red="0.91976243257522583" green="0.18177318333726722" blue="0.095542301650716102" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="m1a-sO-W7e"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -197,14 +221,23 @@
                             <constraint firstItem="035-q6-aUD" firstAttribute="top" secondItem="cfp-Df-Dlh" secondAttribute="bottom" constant="100" id="03Z-F1-o1n"/>
                             <constraint firstItem="m1a-sO-W7e" firstAttribute="trailing" secondItem="wV0-nS-gHj" secondAttribute="trailing" constant="30" id="0MK-TF-Sw2"/>
                             <constraint firstItem="cfp-Df-Dlh" firstAttribute="leading" secondItem="m1a-sO-W7e" secondAttribute="leading" constant="20" id="0l7-dp-5e9"/>
+                            <constraint firstItem="m1a-sO-W7e" firstAttribute="trailing" secondItem="ANq-ik-Hhj" secondAttribute="trailing" constant="30" id="3Nn-SD-1hS"/>
+                            <constraint firstItem="kxz-yD-e6P" firstAttribute="top" secondItem="wV0-nS-gHj" secondAttribute="bottom" constant="100" id="66Y-LD-bgB"/>
                             <constraint firstItem="m1a-sO-W7e" firstAttribute="trailing" secondItem="035-q6-aUD" secondAttribute="trailing" constant="30" id="9L4-5L-MLy"/>
                             <constraint firstItem="035-q6-aUD" firstAttribute="leading" secondItem="m1a-sO-W7e" secondAttribute="leading" constant="30" id="LeL-Ya-x7h"/>
+                            <constraint firstItem="ANq-ik-Hhj" firstAttribute="top" secondItem="kxz-yD-e6P" secondAttribute="bottom" constant="10" id="ZHC-3v-fk9"/>
+                            <constraint firstItem="kxz-yD-e6P" firstAttribute="leading" secondItem="m1a-sO-W7e" secondAttribute="leading" constant="30" id="a6y-MO-PVh"/>
                             <constraint firstItem="cfp-Df-Dlh" firstAttribute="top" secondItem="m1a-sO-W7e" secondAttribute="top" constant="20" id="aJk-Yd-22D"/>
                             <constraint firstItem="wV0-nS-gHj" firstAttribute="leading" secondItem="m1a-sO-W7e" secondAttribute="leading" constant="30" id="cNz-VP-3gi"/>
                             <constraint firstItem="wV0-nS-gHj" firstAttribute="top" secondItem="035-q6-aUD" secondAttribute="bottom" constant="100" id="e3L-X6-gjT"/>
                             <constraint firstItem="m1a-sO-W7e" firstAttribute="trailing" secondItem="cfp-Df-Dlh" secondAttribute="trailing" constant="20" id="ikq-TY-SbH"/>
+                            <constraint firstItem="m1a-sO-W7e" firstAttribute="trailing" secondItem="kxz-yD-e6P" secondAttribute="trailing" constant="30" id="qof-hP-P1i"/>
+                            <constraint firstItem="ANq-ik-Hhj" firstAttribute="leading" secondItem="m1a-sO-W7e" secondAttribute="leading" constant="30" id="vFf-c6-KIJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="segment" destination="ANq-ik-Hhj" id="xyr-cO-FTU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6U-GS-Zdw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

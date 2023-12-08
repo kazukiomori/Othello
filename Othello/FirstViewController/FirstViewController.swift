@@ -9,9 +9,11 @@ import UIKit
 
 class FirstViewController: UIViewController {
     
+    @IBOutlet weak var segment: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        segment.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        segment.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
     }
    
     func gotoFieldViewController(_ isOffline: Bool) {
