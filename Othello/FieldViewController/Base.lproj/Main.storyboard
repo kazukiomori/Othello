@@ -213,6 +213,9 @@
                                 </segments>
                                 <color key="tintColor" systemColor="systemBackgroundColor"/>
                                 <color key="selectedSegmentTintColor" red="0.91976243257522583" green="0.18177318333726722" blue="0.095542301650716102" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="tappedTimeSetting:" destination="hcv-e7-Wfj" eventType="valueChanged" id="gWr-QC-dDw"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="m1a-sO-W7e"/>

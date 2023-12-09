@@ -8,6 +8,7 @@
 import UIKit
 
 class FirstViewController: UIViewController {
+    var timeSetting: timeSetting = .none
     
     @IBOutlet weak var segment: UISegmentedControl!
     override func viewDidLoad() {
@@ -30,6 +31,17 @@ class FirstViewController: UIViewController {
     
     @IBAction func tappedComputer(_ sender: Any) {
         gotoFieldViewController(false)
+    }
+    
+    @IBAction func tappedTimeSetting(_ sender: Any) {
+        switch segment.selectedSegmentIndex {
+        case 0:
+            timeSetting = .none
+        case 1:
+            timeSetting = .twoMinute
+        default:
+            timeSetting = .tenSeconds
+        }
     }
     
 }
