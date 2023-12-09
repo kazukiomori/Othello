@@ -22,6 +22,8 @@ class FieldViewController: UIViewController {
     
     var isOffline = true
     
+    var timeSetting: timeSetting = .none
+    
     func rightButtonAction() -> (() -> Void) {{ [weak self] in self?.resetField() }}
     func leftButtonAction() -> (() -> Void) {{ self.dismiss(animated: true, completion: nil)}}
     func cancelButtonAction() -> (() -> Void) {{ return }}

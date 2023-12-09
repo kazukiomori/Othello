@@ -21,6 +21,7 @@ class FirstViewController: UIViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         guard let FieldViewController = storyBoard.instantiateViewController(withIdentifier: "FieldViewController") as? FieldViewController else { return }
         FieldViewController.isOffline = isOffline
+        FieldViewController.timeSetting = timeSetting
         FieldViewController.modalPresentationStyle = .fullScreen
         present(FieldViewController, animated: true)
     }
