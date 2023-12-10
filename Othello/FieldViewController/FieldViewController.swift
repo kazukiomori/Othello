@@ -23,6 +23,10 @@ class FieldViewController: UIViewController {
     var isOffline = true
     
     var timeSetting: timeSetting = .none
+
+    var timer: Timer = Timer()
+    var blackSettingTime: TimeInterval = 0
+    var whiteSettingTime: TimeInterval = 0
     
     func rightButtonAction() -> (() -> Void) {{ [weak self] in self?.resetField() }}
     func leftButtonAction() -> (() -> Void) {{ self.dismiss(animated: true, completion: nil)}}
@@ -54,7 +58,8 @@ class FieldViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         reloadField()
-        prepareUser() 
+        prepareUser()
+        prepareTimer()
     }
     
     func reloadField() {
@@ -84,6 +89,30 @@ class FieldViewController: UIViewController {
         blackUser.layer.masksToBounds = true
         blackUser.backgroundColor = .black
         blackCountLabel.text = String(blackCount)
+    }
+    
+    func prepareTimer() {
+        switch timeSetting {
+        case .none:
+            whiteTimerLabel.isHidden = true
+            blackTimerLabel.isHidden = true
+        case .twoMinute:
+            whiteSettingTime = 120.0
+            blackSettingTime = 120.0
+            let whiteMinutes = Int(whiteSettingTime) / 60
+            let whiteSeconds = Int(whiteSettingTime) % 60
+            let blackMinutes = Int(blackSettingTime) / 60
+            let blackSeconds = Int(blackSettingTime) % 60
+            whiteTimerLabel.text = String(format: "%02d:%02d", whiteMinutes, whiteSeconds)
+            blackTimerLabel.text = String(format: "%02d:%02d", blackMinutes, blackSeconds)
+        default:
+            whiteSettingTime = 10.0
+            blackSettingTime = 10.0
+            let whiteSeconds = Int(whiteSettingTime) % 60
+            let blackSeconds = Int(blackSettingTime) % 60
+            whiteTimerLabel.text = String(format: "%02d秒", whiteSeconds)
+            blackTimerLabel.text = String(format: "%02d秒", blackSeconds)
+        }
     }
     
     func getStatus(position: Position) -> FieldStatus {
