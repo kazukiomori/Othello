@@ -24,9 +24,13 @@ class FieldViewController: UIViewController {
     
     var timeSetting: timeSetting = .none
 
-    var timer: Timer = Timer()
+    var blackTimer: Timer = Timer()
+    var whiteTimer: Timer = Timer()
     var blackSettingTime: TimeInterval = 0
     var whiteSettingTime: TimeInterval = 0
+    
+    var blackCounting = true
+    var whiteCounting = false
     
     func rightButtonAction() -> (() -> Void) {{ [weak self] in self?.resetField() }}
     func leftButtonAction() -> (() -> Void) {{ self.dismiss(animated: true, completion: nil)}}
@@ -112,6 +116,70 @@ class FieldViewController: UIViewController {
             let blackSeconds = Int(blackSettingTime) % 60
             whiteTimerLabel.text = String(format: "%02d秒", whiteSeconds)
             blackTimerLabel.text = String(format: "%02d秒", blackSeconds)
+        }
+    }
+    
+    func updateBlackTimerLabel() {
+        let minutes = Int(blackSettingTime) / 60
+        let seconds = Int(blackSettingTime) % 60
+        if timeSetting == .twoMinute {
+            blackTimerLabel.text = String(format: "%02d:%02d", minutes, seconds)
+        } else if timeSetting == .tenSeconds {
+            blackTimerLabel.text = String(format: "%02d秒", seconds)
+        }
+    }
+    
+    func updateWhiteTimerLabel() {
+        let minutes = Int(whiteSettingTime) / 60
+        let seconds = Int(whiteSettingTime) % 60
+        if timeSetting == .twoMinute {
+            whiteTimerLabel.text = String(format: "%02d:%02d", minutes, seconds)
+        } else if timeSetting == .tenSeconds {
+            whiteTimerLabel.text = String(format: "%02d秒", seconds)
+        }
+        
+    }
+    
+    @objc func updateTimerForColor() {
+        switch turn {
+        case .黒:
+            blackSettingTime -= 1
+            updateBlackTimerLabel()
+        case .白:
+            whiteSettingTime -= 1
+            updateWhiteTimerLabel()
+        default:
+            break
+        }
+    }
+    
+    func stopTimer() {
+        if blackCounting {
+            blackTimer.invalidate()
+            blackCounting = false
+            if timeSetting == .tenSeconds {
+                blackSettingTime = 10
+                DispatchQueue.main.async {
+                    self.blackTimerLabel.text = String(format: "%02d秒", 10)
+                }
+            }
+        } else {
+            blackCounting = true
+            blackTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimerForColor), userInfo: nil, repeats: true)
+        }
+        
+        if whiteCounting {
+            whiteTimer.invalidate()
+            whiteCounting = false
+            if timeSetting == .tenSeconds {
+                whiteSettingTime = 10
+                DispatchQueue.main.async {
+                    self.whiteTimerLabel.text = String(format: "%02d秒", 10)
+                }
+            }
+        } else {
+            whiteCounting = true
+            whiteTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimerForColor), userInfo: nil, repeats: true)
         }
     }
     
@@ -263,6 +331,8 @@ extension FieldViewController: UICollectionViewDelegate {
         if !isSetOthello(position: Position(x: x, y: y)!, color: turn.color!) {
             return
         }
+        
+        stopTimer()
         
         turnOthello(position: Position(x: x, y: y)!, color: turn.color!)
         
