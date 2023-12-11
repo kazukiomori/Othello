@@ -183,6 +183,33 @@ class FieldViewController: UIViewController {
         }
     }
     
+    func finishTimer() {
+        blackTimer.invalidate()
+        whiteTimer.invalidate()
+        switch timeSetting {
+        case .tenSeconds:
+            blackSettingTime = 10
+            whiteSettingTime = 10
+            DispatchQueue.main.async {
+                self.blackTimerLabel.text = String(format: "%02d秒", 10)
+                self.whiteTimerLabel.text = String(format: "%02d秒", 10)
+            }
+        case .twoMinute:
+            whiteSettingTime = 120.0
+            blackSettingTime = 120.0
+            let whiteMinutes = Int(whiteSettingTime) / 60
+            let whiteSeconds = Int(whiteSettingTime) % 60
+            let blackMinutes = Int(blackSettingTime) / 60
+            let blackSeconds = Int(blackSettingTime) % 60
+            DispatchQueue.main.async {
+                self.whiteTimerLabel.text = String(format: "%02d:%02d", whiteMinutes, whiteSeconds)
+                self.blackTimerLabel.text = String(format: "%02d:%02d", blackMinutes, blackSeconds)
+            }
+        default:
+            break
+        }
+    }
+    
     func getStatus(position: Position) -> FieldStatus {
         fieldStates[position.x][position.y]
     }
@@ -361,8 +388,10 @@ extension FieldViewController: UICollectionViewDelegate {
             turn = (turn.color?.reverseColor.status)!
         } else {
             if whiteCount > blackCount {
+                finishTimer()
                 showAlert(title: "白の勝ち。", message: "\(whiteCount)対\(blackCount)で白の勝ちです。\nもう一度ゲームを続けますか？", rightButtonTitle: "続ける", rightButtonAction: rightAction, leftButtonTitle: "キャンセル", leftButtonAction: leftAction)
             } else {
+                finishTimer()
                 showAlert(title: "黒の勝ち。", message: "\(blackCount)対\(whiteCount)で黒の勝ちです。\nもう一度ゲームを続けますか？", rightButtonTitle: "続ける", rightButtonAction: rightAction, leftButtonTitle: "キャンセル", leftButtonAction: leftAction)
             }
         }
