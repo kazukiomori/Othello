@@ -141,13 +141,31 @@ class FieldViewController: UIViewController {
     }
     
     @objc func updateTimerForColor() {
+        let rightAction = rightButtonAction()
+        let leftAction = leftButtonAction()
         switch turn {
         case .黒:
-            blackSettingTime -= 1
-            updateBlackTimerLabel()
+            if blackSettingTime > 0 {
+                blackSettingTime -= 1
+                updateBlackTimerLabel()
+            } else {
+                if timeSetting != .none {
+                    showAlert(title: "白の勝ち。", message: "黒の持ち時間が0になりました。白の勝ちです。\nもう一度ゲームを続けますか？", rightButtonTitle: "続ける", rightButtonAction: rightAction, leftButtonTitle: "ホームに戻る", leftButtonAction: leftAction)
+                    blackTimer.invalidate()
+                    finishTimer()
+                }
+            }
         case .白:
-            whiteSettingTime -= 1
-            updateWhiteTimerLabel()
+            if whiteSettingTime > 0 {
+                whiteSettingTime -= 1
+                updateWhiteTimerLabel()
+            } else {
+                if timeSetting != .none {
+                    showAlert(title: "黒の勝ち。", message: "白の持ち時間が0になりました。黒の勝ちです。\nもう一度ゲームを続けますか？", rightButtonTitle: "続ける", rightButtonAction: rightAction, leftButtonTitle: "ホームに戻る", leftButtonAction: leftAction)
+                    whiteTimer.invalidate()
+                    finishTimer()
+                }
+            }
         default:
             break
         }
