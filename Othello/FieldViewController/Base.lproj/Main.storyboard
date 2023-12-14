@@ -113,7 +113,22 @@
                                     <constraint firstAttribute="width" constant="100" id="URW-8U-Fnn"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="ホームに戻る"/>
+                                <connections>
+                                    <action selector="tappedBackToHome:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Te-Jx-Vxk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BwR-2D-Pkg">
+                                <rect key="frame" x="273" y="732" width="100" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8lC-ev-fXc"/>
+                                    <constraint firstAttribute="width" constant="100" id="RDL-73-TGx"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="新規対局"/>
+                                <connections>
+                                    <action selector="tappedNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ae8-6C-QhR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -123,6 +138,7 @@
                             <constraint firstItem="0Gh-4a-0QU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7pQ-Kn-fwE"/>
                             <constraint firstItem="itt-3i-t3O" firstAttribute="top" secondItem="fGM-yf-IyM" secondAttribute="bottom" constant="40" id="Arv-rT-iyl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9WK-05-a1S" secondAttribute="trailing" constant="20" id="GbT-ms-wJK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BwR-2D-Pkg" secondAttribute="trailing" constant="20" id="H9p-OJ-HFk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Gh-4a-0QU" secondAttribute="trailing" id="PUG-Ml-Hon"/>
                             <constraint firstItem="Qb2-5d-FRi" firstAttribute="top" secondItem="0Gh-4a-0QU" secondAttribute="bottom" constant="50" id="RVX-Wj-ex0"/>
                             <constraint firstItem="tWS-kd-4QM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="WZf-SG-3jT"/>
@@ -135,6 +151,7 @@
                             <constraint firstItem="fGM-yf-IyM" firstAttribute="top" secondItem="0Gh-4a-0QU" secondAttribute="bottom" constant="50" id="hC0-tB-TE5"/>
                             <constraint firstItem="CZW-Y5-03v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="hHF-oS-oyC"/>
                             <constraint firstItem="n3x-0R-bWr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="lEv-Y9-ny3"/>
+                            <constraint firstItem="BwR-2D-Pkg" firstAttribute="top" secondItem="fGM-yf-IyM" secondAttribute="bottom" constant="40" id="oP4-hS-vPn"/>
                             <constraint firstItem="0Gh-4a-0QU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="140" id="oU2-t8-Era"/>
                             <constraint firstItem="n3x-0R-bWr" firstAttribute="leading" secondItem="tWS-kd-4QM" secondAttribute="trailing" constant="18" id="uKG-u6-skz"/>
                         </constraints>
