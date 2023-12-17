@@ -32,8 +32,14 @@ class FieldViewController: UIViewController {
     var blackCounting = true
     var whiteCounting = false
     
-    func rightButtonAction() -> (() -> Void) {{ [weak self] in self?.resetField() }}
-    func leftButtonAction() -> (() -> Void) {{ self.dismiss(animated: true, completion: nil)}}
+    func startNewGameAction() -> (() -> Void) {
+        { [weak self] in self?.resetField()
+            self?.finishTimer()}
+    }
+    func backToHomeAction() -> (() -> Void) {
+        { self.dismiss(animated: true, completion: nil)
+            self.finishTimer()}
+    }
     func cancelButtonAction() -> (() -> Void) {{ return }}
     @IBOutlet weak var whiteUserBack: UIView!
     @IBOutlet weak var whiteBackHeight: NSLayoutConstraint!
@@ -141,8 +147,8 @@ class FieldViewController: UIViewController {
     }
     
     @objc func updateTimerForColor() {
-        let rightAction = rightButtonAction()
-        let leftAction = leftButtonAction()
+        let rightAction = startNewGameAction()
+        let leftAction = backToHomeAction()
         switch turn {
         case .黒:
             if blackSettingTime > 0 {
@@ -369,6 +375,14 @@ class FieldViewController: UIViewController {
         }
         return canSetFields
     }
+    
+    @IBAction func tappedBackToHome(_ sender: Any) {
+        showAlert(title: "ホームに戻る", message: "本当にホームに戻りますか？", rightButtonTitle: "ホームに戻る", rightButtonAction: backToHomeAction(), leftButtonTitle: "キャンセル", leftButtonAction: cancelButtonAction())
+    }
+    
+    @IBAction func tappedNewGame(_ sender: Any) {
+        showAlert(title: "新規対局", message: "本当に最初から始めますか？", rightButtonTitle: "新規対局", rightButtonAction: startNewGameAction(), leftButtonTitle: "キャンセル", leftButtonAction: cancelButtonAction())
+    }
 }
 
 extension FieldViewController: UICollectionViewDelegate {
@@ -395,7 +409,7 @@ extension FieldViewController: UICollectionViewDelegate {
         
         getColorsCount()
         
-        let rightAction = rightButtonAction()
+        let rightAction = startNewGameAction()
         let leftAction = cancelButtonAction()
         
         // 次の色が置くことができるかチェックする　できないならパス　パスした色も置けないならゲーム終了
