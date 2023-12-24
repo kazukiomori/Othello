@@ -38,7 +38,9 @@ class FieldViewController: UIViewController {
     }
     func backToHomeAction() -> (() -> Void) {
         { self.dismiss(animated: true, completion: nil)
-            self.finishTimer()}
+            self.finishTimer()
+            self.resetField()
+        }
     }
     func cancelButtonAction() -> (() -> Void) {{ return }}
     @IBOutlet weak var whiteUserBack: UIView!
@@ -62,14 +64,13 @@ class FieldViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareField()
-        reloadField()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        reloadField()
         prepareUser()
         prepareTimer()
+        reloadField()
     }
     
     func reloadField() {
