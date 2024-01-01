@@ -240,7 +240,7 @@
 				3BF9B4302A504BFD00637AAB /* Sources */,
 				3BF9B4312A504BFD00637AAB /* Frameworks */,
 				3BF9B4322A504BFD00637AAB /* Resources */,
-				2C42FCE01612EF63E67BD440 /* [CP] Embed Pods Frameworks */,
+				CD94E6FE265E37E75ACB6252 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -278,7 +278,7 @@
 				3BF9B4502A504C0000637AAB /* Sources */,
 				3BF9B4512A504C0000637AAB /* Frameworks */,
 				3BF9B4522A504C0000637AAB /* Resources */,
-				54A6B54DB0F785DB12D729F1 /* [CP] Embed Pods Frameworks */,
+				C73E97283D0BAFC59248B7AF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -362,40 +362,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2C42FCE01612EF63E67BD440 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Othello/Pods-Othello-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Othello/Pods-Othello-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Othello/Pods-Othello-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		54A6B54DB0F785DB12D729F1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Othello-OthelloUITests/Pods-Othello-OthelloUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Othello-OthelloUITests/Pods-Othello-OthelloUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Othello-OthelloUITests/Pods-Othello-OthelloUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		734458110B3379B688FDDCE4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -438,6 +404,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C73E97283D0BAFC59248B7AF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Othello-OthelloUITests/Pods-Othello-OthelloUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Othello-OthelloUITests/Pods-Othello-OthelloUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Othello-OthelloUITests/Pods-Othello-OthelloUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD94E6FE265E37E75ACB6252 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Othello/Pods-Othello-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Othello/Pods-Othello-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Othello/Pods-Othello-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F09D8AF0FF8DBCD19B807ED3 /* [CP] Check Pods Manifest.lock */ = {
