@@ -15,8 +15,9 @@ class PlayCount {
     }
     
     func plusPlayCount() {
-        var playCount = getPlayCount()
-        return playCount += 1
+        var playCountIncrement = getPlayCount()
+        playCountIncrement += 1
+        UserDefaults.standard.set(playCountIncrement, forKey: "playCount")
     }
     
     func resetPlayCount() {

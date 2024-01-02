@@ -12,6 +12,7 @@
 		3B8D51A82B190131005B8FC9 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D51A72B190131005B8FC9 /* FirstViewController.swift */; };
 		3BBC16902B247AD20045C8DE /* TimeSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBC168F2B247AD10045C8DE /* TimeSetting.swift */; };
 		3BCE99AC2B432566001DA0A1 /* PlayCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE99AB2B432566001DA0A1 /* PlayCount.swift */; };
+		3BCE99AE2B432B00001DA0A1 /* Admob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE99AD2B432B00001DA0A1 /* Admob.swift */; };
 		3BF9B4382A504BFD00637AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9B4372A504BFD00637AAB /* AppDelegate.swift */; };
 		3BF9B43A2A504BFD00637AAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9B4392A504BFD00637AAB /* SceneDelegate.swift */; };
 		3BF9B43C2A504BFD00637AAB /* FieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9B43B2A504BFD00637AAB /* FieldViewController.swift */; };
@@ -54,6 +55,7 @@
 		3B8D51A72B190131005B8FC9 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		3BBC168F2B247AD10045C8DE /* TimeSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSetting.swift; sourceTree = "<group>"; };
 		3BCE99AB2B432566001DA0A1 /* PlayCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayCount.swift; sourceTree = "<group>"; };
+		3BCE99AD2B432B00001DA0A1 /* Admob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admob.swift; sourceTree = "<group>"; };
 		3BF9B4342A504BFD00637AAB /* Othello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Othello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BF9B4372A504BFD00637AAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BF9B4392A504BFD00637AAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				3B09C7542B052FF2000BADFF /* ArrayExtension.swift */,
 				3BCE99AB2B432566001DA0A1 /* PlayCount.swift */,
+				3BCE99AD2B432B00001DA0A1 /* Admob.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				3B8D51A82B190131005B8FC9 /* FirstViewController.swift in Sources */,
 				3BF9B4382A504BFD00637AAB /* AppDelegate.swift in Sources */,
 				3BBC16902B247AD20045C8DE /* TimeSetting.swift in Sources */,
+				3BCE99AE2B432B00001DA0A1 /* Admob.swift in Sources */,
 				3BCE99AC2B432566001DA0A1 /* PlayCount.swift in Sources */,
 				3B09C7552B052FF2000BADFF /* ArrayExtension.swift in Sources */,
 				3BF9B46E2A50688800637AAB /* FieldStatus.swift in Sources */,

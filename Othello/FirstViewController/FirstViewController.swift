@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class FirstViewController: UIViewController {
     var timeSetting: timeSetting = .none
@@ -13,6 +14,7 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var segment: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
+        Admob.shared.setInterstitial()
         segment.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         segment.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
     }
@@ -27,11 +29,32 @@ class FirstViewController: UIViewController {
     }
     
     @IBAction func tappedOffline(_ sender: Any) {
+        PlayCount.shared.plusPlayCount()
+        if PlayCount.shared.getPlayCount() == 5 {
+            showAd(true)
+            PlayCount.shared.resetPlayCount()
+        }
+        PlayCount.shared.plusPlayCount()
         gotoFieldViewController(true)
     }
     
     @IBAction func tappedComputer(_ sender: Any) {
+        if PlayCount.shared.getPlayCount() == 5 {
+            showAd(false)
+            PlayCount.shared.resetPlayCount()
+        }
+        PlayCount.shared.plusPlayCount()
         gotoFieldViewController(false)
+    }
+    
+    func showAd(_ isOffline: Bool) {
+        guard let rewardedInterstitialAd = Admob.shared.rewardedInterstitialAd else {
+            return print("Ad wasn't ready.")
+          }
+
+          rewardedInterstitialAd.present(fromRootViewController: self) {
+            let reward = rewardedInterstitialAd.adReward
+          }
     }
     
     @IBAction func tappedTimeSetting(_ sender: Any) {

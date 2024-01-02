@@ -1,5 +1,6 @@
 
 import UIKit
+import GoogleMobileAds
 
 class FieldViewController: UIViewController {
     let FIELD_SIZE = CGSize(width: 8, height: 8)
@@ -34,7 +35,13 @@ class FieldViewController: UIViewController {
     
     func startNewGameAction() -> (() -> Void) {
         { [weak self] in self?.resetField()
-            self?.finishTimer()}
+            self?.finishTimer()
+            if PlayCount.shared.getPlayCount() == 5 {
+                self?.showAd()
+                PlayCount.shared.resetPlayCount()
+            }
+            PlayCount.shared.plusPlayCount()
+        }
     }
     func backToHomeAction() -> (() -> Void) {
         { self.dismiss(animated: true, completion: nil)
@@ -375,6 +382,16 @@ class FieldViewController: UIViewController {
             }
         }
         return canSetFields
+    }
+    
+    func showAd() {
+        guard let rewardedInterstitialAd = Admob.shared.rewardedInterstitialAd else {
+            return print("Ad wasn't ready.")
+          }
+
+          rewardedInterstitialAd.present(fromRootViewController: self) {
+            let reward = rewardedInterstitialAd.adReward
+          }
     }
     
     @IBAction func tappedBackToHome(_ sender: Any) {
