@@ -22,6 +22,8 @@ class FieldCell: UICollectionViewCell {
             self.fieldView.backgroundColor = .white
         case .空:
             self.fieldView.backgroundColor = .systemGreen
+        case .置けるマス:
+            self.fieldView.backgroundColor = .systemGray6
         }
     }
     
