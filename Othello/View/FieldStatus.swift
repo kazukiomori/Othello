@@ -9,7 +9,6 @@ enum FieldStatus: Equatable {
     
     var color: Color? {
         switch self {
-        case .空: return nil
         case .黒: return .黒
         case .白: return .白
         default: return nil
@@ -20,7 +19,6 @@ enum FieldStatus: Equatable {
         switch self {
         case .黒: return .白
         case .白: return .黒
-        case .空: return nil
         default: return nil
         }
     }
