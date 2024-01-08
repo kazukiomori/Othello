@@ -314,7 +314,6 @@ class FieldViewController: UIViewController {
         
         if retryFlag {
             retryFlag = false
-            isGameOver(color: color.reverseColor)
             return false
         }
             return true
