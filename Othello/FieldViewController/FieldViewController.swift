@@ -53,9 +53,11 @@ class FieldViewController: UIViewController {
     @IBOutlet weak var whiteUserBack: UIView!
     @IBOutlet weak var whiteBackHeight: NSLayoutConstraint!
     @IBOutlet weak var whiteUser: UIView!
+    @IBOutlet weak var whiteUserTurnBar: UIView!
     @IBOutlet weak var whiteCountLabel: UILabel!
     @IBOutlet weak var whiteTimerLabel: UILabel!
     @IBOutlet weak var blackUser: UIView!
+    @IBOutlet weak var blackUserTurnBar: UIView!
     @IBOutlet weak var blackCountLabel: UILabel!
     @IBOutlet weak var blackTimerLabel: UILabel!
     
