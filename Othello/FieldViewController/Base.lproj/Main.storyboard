@@ -88,7 +88,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7i-8G-5Y7">
-                                <rect key="frame" x="36" y="134" width="50" height="2"/>
+                                <rect key="frame" x="20" y="134" width="50" height="2"/>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="pOc-FN-Yut"/>
@@ -174,7 +174,7 @@
                             <constraint firstItem="0Gh-4a-0QU" firstAttribute="top" secondItem="tWS-kd-4QM" secondAttribute="bottom" constant="30" id="oU2-t8-Era"/>
                             <constraint firstItem="BwR-2D-Pkg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="itt-3i-t3O" secondAttribute="trailing" constant="8" symbolic="YES" id="r6C-fM-aMF"/>
                             <constraint firstItem="n3x-0R-bWr" firstAttribute="leading" secondItem="tWS-kd-4QM" secondAttribute="trailing" constant="18" id="uKG-u6-skz"/>
-                            <constraint firstItem="X7i-8G-5Y7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="xUa-rw-O4l"/>
+                            <constraint firstItem="X7i-8G-5Y7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="xUa-rw-O4l"/>
                         </constraints>
                     </view>
                     <connections>
