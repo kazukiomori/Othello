@@ -80,9 +80,12 @@ class FieldViewController: UIViewController {
         prepareUser()
         prepareTimer()
         reloadField()
+        manageTurnBar(turn: turn)
     }
     
     func reloadField() {
+        // 置けるますの色を変える
+        updateNextSetColor()
         DispatchQueue.main.async {
             self.fieldCollectionView.reloadData()
         }
@@ -374,6 +377,19 @@ class FieldViewController: UIViewController {
         return canSetFields.randomElement()
     }
     
+    func getCanSetRandomField() -> Position? {
+        var canSetFields: [Position] = []
+        for i in 0..<fieldStates.count {
+            for j in 0..<fieldStates[i].count {
+                if fieldStates[j][i] == .置けるマス {
+                    let position = Position(x: i, y: j)!
+                    canSetFields.append(position)
+                }
+            }
+        }
+        return canSetFields.randomElement()
+    }
+    
     func getFieldCanSet(color: Color) -> [Position] {
         let emptyPositions = getEmptyPositions()
         var canSetFields: [Position] = []
@@ -383,6 +399,38 @@ class FieldViewController: UIViewController {
             }
         }
         return canSetFields
+    }
+    
+    func updateNextSetColor() {
+        resetNextSetColor()
+        let nextSetStones = getFieldCanSet(color: turn.color!)
+        nextSetStones.forEach { stone in
+            fieldStates[stone.x][stone.y] = .置けるマス
+        }
+    }
+    
+    func resetNextSetColor() {
+        for i in 0..<fieldStates.count {
+            for j in 0..<fieldStates[i].count {
+                if fieldStates[j][i] == .置けるマス {
+                    fieldStates[j][i] = .空
+                }
+            }
+        }
+        print("fields:\(fieldStates)")
+    }
+    
+    func manageTurnBar(turn: FieldStatus) {
+        switch turn {
+        case .白:
+            whiteUserTurnBar.isHidden = false
+            blackUserTurnBar.isHidden = true
+        case .黒:
+            whiteUserTurnBar.isHidden = true
+            blackUserTurnBar.isHidden = false
+        default:
+            break
+        }
     }
     
     func showAd() {
@@ -421,9 +469,12 @@ extension FieldViewController: UICollectionViewDelegate {
         case .白:
             fieldStates[x][y] = .白
             turn = .黒
+            blackUserTurnBar.isHidden = false
+            
         default:
             break
         }
+        manageTurnBar(turn: turn)
         reloadField()
         
         getColorsCount()
@@ -431,9 +482,10 @@ extension FieldViewController: UICollectionViewDelegate {
         let rightAction = startNewGameAction()
         let leftAction = cancelButtonAction()
         
+        resetNextSetColor()
         // 次の色が置くことができるかチェックする　できないならパス　パスした色も置けないならゲーム終了
         if canSetStone(color: turn.color!) {
-            
+            updateNextSetColor()
         } else if canSetStone(color: turn.color!.reverseColor) {
             print("\(turn.color!)は置くところがありません。\(String(describing: turn.color?.reverseColor))の番です。")
             turn = (turn.color?.reverseColor.status)!
@@ -457,7 +509,7 @@ extension FieldViewController: UICollectionViewDelegate {
         if !isOffline {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 while self.turn == .白 {
-                    guard let field = self.getRandomField(color: self.turn.color!) else { return }
+                    guard let field = self.getCanSetRandomField() else { return }
                     self.othelloLogicAfterSetStone(field.x, field.y)
                 }
             }

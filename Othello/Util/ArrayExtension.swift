@@ -28,7 +28,7 @@ extension Array where Element == FieldStatus {
     func isSetOthello(color: Color) -> Bool {
         let removedArray = self.removeSequence()
         return removedArray.count >= 3 &&
-        removedArray[0] == .空 &&
+        (removedArray[0] == .空 || removedArray[0] == .置けるマス) &&
         removedArray[1].color == color.reverseColor &&
         removedArray[2].color == color &&
         self[1] != .空 &&
