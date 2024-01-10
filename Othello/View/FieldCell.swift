@@ -23,7 +23,7 @@ class FieldCell: UICollectionViewCell {
         case .空:
             self.fieldView.backgroundColor = .systemGreen
         case .置けるマス:
-            self.fieldView.backgroundColor = .systemGray6
+            self.fieldView.backgroundColor = .systemBlue
         }
     }
     
