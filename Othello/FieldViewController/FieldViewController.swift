@@ -14,6 +14,8 @@ class FieldViewController: UIViewController {
         [.空,.空,.空,.空,.空,.空,.空,.空],
         [.空,.空,.空,.空,.空,.空,.空,.空]
     ]
+    
+    var previousFields: [[FieldStatus]] = [[]]
     var turn: FieldStatus = .黒
     
     var whiteCount: Int = 2
@@ -431,6 +433,10 @@ class FieldViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    func setPreviousFields() {
+        previousFields = fieldStates
     }
     
     func showAd() {
