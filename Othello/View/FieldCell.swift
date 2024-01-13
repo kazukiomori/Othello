@@ -3,6 +3,7 @@ import UIKit
 
 class FieldCell: UICollectionViewCell {
     
+    @IBOutlet weak var fieldBackgroundView: UIView!
     @IBOutlet weak var fieldView: UIView!
     var status: FieldStatus = .空
     
@@ -25,6 +26,10 @@ class FieldCell: UICollectionViewCell {
         case .置けるマス:
             self.fieldView.backgroundColor = .systemBlue
         }
+    }
+    
+    func canSetNextStone() {
+        self.fieldBackgroundView.backgroundColor = .systemBlue
     }
     
 }
