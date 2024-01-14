@@ -24,6 +24,11 @@ enum FieldStatus: Equatable {
     }
 }
 
+enum FieldNextSetStatus: Equatable {
+    case 置ける
+    case 置けない
+}
+
 enum Color: Equatable {
     case 黒
     case 白
